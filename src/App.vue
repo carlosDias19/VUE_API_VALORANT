@@ -1,11 +1,29 @@
-<script setup>
-import { onMounted, reactive, ref } from 'vue';
+<script>
 
-let character = reactive(ref());
-
-onMounted(()=>{
-    fetch("https://valorant-api.com/v1/agents").then(res => { res.json().then((x) =>{ character = x.data })})
-})
+export default{
+    data: function () {
+        return {
+            character: null
+        }
+    },
+    computed: {
+    },
+    methods: {
+        getDados(){
+            fetch("https://valorant-api.com/v1/agents").then(res => { res.json().then((x) =>{ this.character = x.data })})
+        },
+        teste(){
+            console.log(this.character)
+            for (let i = 0; i < this.character.length; i++) {
+                const element = this.character[i];
+                console.log(element)
+            }
+        }
+    },
+    mounted: function () {
+        this.getDados();
+    }
+}
 </script>
 
 <template>
@@ -23,19 +41,21 @@ onMounted(()=>{
       </button>
     </div>
   </nav>
-
   <div class="container texte-center">
     <div class="row">
         <div class="row col-12">
             <div v-for="c in character" class="col-6 d-flex justify-content-center">
                 <div class="col-sm-12 col-md-6">
-                    <div class="card">
+                    <div id="card" class="card">
                         <div class="card-body row">
-                            <div class="">{{ c.displayName }}</div>
-                            <img :src="c.displayIcon">
+                            <div style="" class=""><strong>{{ c.displayName }}</strong></div>
                             <div>
-                                <p class="mt-4">{{ c.description }}</p>
+                                <img :src="c.displayIcon">
                             </div>
+                            <div>
+                                <p class="mt-4"> <strong>Description:</strong> {{ c.description }}</p>
+                            </div>
+                            <button type="button" @click="teste" class="btn btn-dark">Info Skil</button>
                         </div>
                     </div>
                 </div>
@@ -44,9 +64,6 @@ onMounted(()=>{
     </div>
   </div>
 
-
 </template>
-
 <style scoped>
-
 </style>
