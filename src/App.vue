@@ -3,7 +3,7 @@
 export default{
     data: function () {
         return {
-            character: null
+            character: null,
         }
     },
     computed: {
@@ -12,16 +12,17 @@ export default{
         getDados(){
             fetch("https://valorant-api.com/v1/agents").then(res => { res.json().then((x) =>{ this.character = x.data })})
         },
-        teste(){
-            console.log(this.character)
-            for (let i = 0; i < this.character.length; i++) {
-                const element = this.character[i];
-                console.log(element)
-            }
+        teste(c){
+            console.log(c)
+            this.abreModal();
+        },
+        abreModal(){
+            
         }
     },
     mounted: function () {
         this.getDados();
+        
     }
 }
 </script>
@@ -55,13 +56,33 @@ export default{
                             <div>
                                 <p class="mt-4"> <strong>Description:</strong> {{ c.description }}</p>
                             </div>
-                            <button type="button" @click="teste" class="btn btn-dark">Info Skil</button>
+                            <button type="button" @click="teste(c)" class="btn btn-dark">Info Skills</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+  </div>
+
+  <div id="myModal" class="modal" tabindex="-1" role="dialog">
+  <div  class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Modal body text goes here.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
   </div>
 
 </template>
