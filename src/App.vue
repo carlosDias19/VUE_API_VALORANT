@@ -48,11 +48,11 @@ export default{
   <div class="container texte-center">
     <div class="row">
         <div class="row col-12">
-            <div v-for="c in character" style="margin-top: 5%;" class="col-6 d-flex justify-content-center">
+            <div v-for="c in character" style="margin-top: 5%;" class="col-6 mt-4 d-flex justify-content-center">
                 <div class="col-sm-12 col-md-6">
                     <div id="card" style="background-color: #d7f7f4;" class="card">
                         <div  class="card-body row">
-                            <div style="" class=""><strong>{{ c.displayName }}</strong></div>
+                            <div style="font-weight: bold; text-decoration: underline;" class=""><strong>{{ c.displayName }}</strong></div>
                             <div>
                                 <img :src="c.displayIcon">
                             </div>
@@ -80,13 +80,13 @@ export default{
             <div class="row">
               <div class="col-md-5"></div>
               <div>
-                <h1>{{this.name}}</h1>
+                <h1 style="margin-left: 500px; font-weight: bold; text-decoration: underline;">{{this.name}}</h1>
             </div>
-            <div v-for="skill in this.skill" style="margin-top: 5%;" class="col-6 d-flex justify-content-center">
+            <div v-for="skill in this.skill" style="margin-top: 5%;" class="col-6 mt-4 d-flex justify-content-center">
               <div class="col-sm-12 col-md-6">
                     <div id="card" class="card">
                         <div style="background-color: #d7f7f4;" class="card-body row">
-                            <div style="" class=""><strong>{{ skill.displayName }}</strong></div>
+                            <div  class=""><strong>{{ skill.displayName }}</strong></div>
                             <div>
                                 <img :src="skill.displayIcon">
                             </div>
