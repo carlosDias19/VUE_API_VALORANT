@@ -48,10 +48,10 @@ export default{
   <div class="container texte-center">
     <div class="row">
         <div class="row col-12">
-            <div v-for="c in character" class="col-6 d-flex justify-content-center">
+            <div v-for="c in character" style="margin-top: 5%;" class="col-6 d-flex justify-content-center">
                 <div class="col-sm-12 col-md-6">
-                    <div id="card" class="card">
-                        <div class="card-body row">
+                    <div id="card" style="background-color: #d7f7f4;" class="card">
+                        <div  class="card-body row">
                             <div style="" class=""><strong>{{ c.displayName }}</strong></div>
                             <div>
                                 <img :src="c.displayIcon">
@@ -82,7 +82,7 @@ export default{
               <div>
                 <h1>{{this.name}}</h1>
             </div>
-            <div v-for="skill in this.skill" class="col-6 d-flex justify-content-center">
+            <div v-for="skill in this.skill" style="margin-top: 5%;" class="col-6 d-flex justify-content-center">
               <div class="col-sm-12 col-md-6">
                     <div id="card" class="card">
                         <div style="background-color: #d7f7f4;" class="card-body row">
@@ -107,5 +107,8 @@ export default{
 
 </div>
 </template>
-<style scoped>
+<style>
+#app{
+  background-color: cadetblue;
+}
 </style>
