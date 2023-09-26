@@ -1,6 +1,10 @@
 <script>
-
+import {RouterLink, RouterView} from 'vue-router'
+import AppArmas from './views/AppArmas.vue'
 export default{
+    components:{
+        RouterLink, RouterView, AppArmas
+    },
     data: function () {
         return {
             character: null,
@@ -17,7 +21,6 @@ export default{
         infos(c){
             this.name = c.displayName
             this.skill = c.abilities
-            console.log(c)
         },
         abreModal(){
             
@@ -25,16 +28,17 @@ export default{
     },
     mounted: function () {
         this.getDados();
-        
+
     }
 }
 </script>
-
 <template>
   <div class="collapse" id="navbarToggleExternalContent" data-bs-theme="dark">
     <div class="bg-dark p-4">
-      <h5 class="text-body-emphasis h4">Usando API do valorant com vue js.</h5>
-      <span class="text-body-secondary">TKS</span>
+      <h5 style="color: cadetblue;" class="text-body-emphasis h4">Usando API do valorant com vue js.</h5>
+      <li class="nav-item">
+        <router-link to="#">Armas</router-link>
+      </li>
     </div>
   </div>
   <nav class="navbar navbar-dark bg-dark">
